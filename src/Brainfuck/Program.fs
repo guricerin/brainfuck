@@ -2,8 +2,8 @@
 open System.IO
 
 open Brainfuck
-open Token
 open Instruction
+open Parser
 open Machine
 
 let printPrompt() = Console.Write("Brainfuck>> ")
@@ -17,7 +17,8 @@ let rec repl() =
         Console.WriteLine("bye")
         ()
     else
-        code |> Token.lex |> Instruction.parse |> machine.Run
+        code |> Parser.parse |> machine.Interpret
+        machine.Dump(0,10)
         Console.WriteLine()
         repl()
 
@@ -41,9 +42,10 @@ let main argv =
     | 1 -> 
         let filename = argv.[0]
         let code = File.ReadAllLines(filename) |> String.concat ""
-        use writer = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()))
-        Console.SetOut(writer)
-        code |> Token.lex |> Instruction.parse |> machine.Run
+        // use writer = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()))
+        // Console.SetOut(writer)
+        code |> Parser.parse |> machine.Interpret
+        machine.Dump(0,10)
     | _ -> 
         let msg = """
 Usage: 
