@@ -30,6 +30,7 @@ module Parser =
     let private createJumpTable (tokens: ResizeArray<Instruction>) =
         let len = tokens.Count
         let res = Array.init len (fun _ -> Int32.MinValue)
+        // 対応する括弧の位置を線形時間で探索
         let begins = Stack<int>()
         for i in 0 .. len - 1 do
             match tokens.[i] with

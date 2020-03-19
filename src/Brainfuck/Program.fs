@@ -16,7 +16,7 @@ let title = """
                  ||     ||
 """
 
-let usage = """
+let discribe = """
 > : increment the pointer
 < : decrement the pointer
 + : increment the byte at the pointer
@@ -44,6 +44,7 @@ let rec repl() =
             code |> Parser.parse |> machine.Interpret
         with
         | ex -> Console.WriteLine(ex.Message)
+        // 出力していた場合、改行してプロンプトを見やすくする
         if machine.Writed() then
             Console.WriteLine()
         repl()
@@ -51,12 +52,12 @@ let rec repl() =
 [<EntryPoint>]
 let main argv =
     match argv.Length with
-    | 0 -> 
+    | 0 -> // repl
         Console.Clear()
         Console.WriteLine(title)
-        Console.WriteLine(usage)
+        Console.WriteLine(discribe)
         repl()
-    | 1 -> 
+    | 1 -> // file load
         let filename = argv.[0]
         let code = File.ReadAllLines(filename) |> String.concat ""
         code |> Parser.parse |> machine.Interpret
