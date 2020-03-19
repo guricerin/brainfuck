@@ -1,5 +1,6 @@
 module Brainfuck.Parser
 
+open System.Collections.Generic
 open Instruction
 
 [<RequireQualifiedAccess>]
@@ -17,7 +18,7 @@ module Parser =
         | ']' -> Some LoopEnd
         | _ -> None // ignore
 
-    let lex (code: string) =
+    let private lex (code: string) =
         let res = ResizeArray<Instruction>()
         for c in code do
             match tryToToken c with
@@ -25,31 +26,23 @@ module Parser =
             | None -> ()
         res
 
-    let createJumpTable (tokens: ResizeArray<Instruction>) =
+    let private createJumpTable (tokens: ResizeArray<Instruction>) =
         let len = tokens.Count
         let res = Array.init len (fun _ -> -1)
-        let mutable l = 0
-        while l < len do
-            if tokens.[l] = LoopBegin then
-                let mutable nest = 1
-                let mutable r = l + 1
-                while nest <> 0 && r < len do
-                    match tokens.[r] with
-                    | LoopBegin -> nest <- nest + 1
-                    | LoopEnd -> nest <- nest - 1
-                    | _ -> ()
-                    r <- r + 1
-
-                if nest = 0 then
-                    r <- if r = l + 1 then r else r - 1
-                    res.[l] <- r
-                    res.[r] <- l
-                else
-                    let msg = sprintf "loop-begin-blacket(at %d) is not balanced!" l
+        let begins = Stack<int>()
+        for i in 0 .. len - 1 do
+            match tokens.[i] with
+            | LoopBegin -> begins.Push(i)
+            | LoopEnd ->
+                if begins.Count < 1 then
+                    let msg = sprintf "loop-end-bracket(at %d) has not pair!" i
                     invalidArg "tokens" msg
+                let b = begins.Pop()
+                res.[b] <- i
+                res.[i] <- b
+            | _ -> ()
 
-            l <- l + 1
-
+        if begins.Count <> 0 then invalidArg "tokens" "blacket is not balanced!"
         res
 
     let parse (code: string) =

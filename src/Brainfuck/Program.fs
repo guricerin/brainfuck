@@ -2,25 +2,8 @@
 open System.IO
 
 open Brainfuck
-open Instruction
 open Parser
 open Machine
-
-let printPrompt() = Console.Write("Brainfuck>> ")
-
-let machine = Machine()
-
-let rec repl() =
-    printPrompt()
-    let code = Console.ReadLine()
-    if String.IsNullOrEmpty(code) then
-        Console.WriteLine("bye")
-        ()
-    else
-        code |> Parser.parse |> machine.Interpret
-        machine.Dump(0,10)
-        Console.WriteLine()
-        repl()
 
 let title = """
   _______
@@ -33,25 +16,53 @@ let title = """
                  ||     ||
 """
 
+let usage = """
+> : increment the pointer
+< : decrement the pointer
++ : increment the byte at the pointer
+- : increment the byte at the pointer
+. : output the byte at the pointer
+, : accept one byte of input, and store it in the byte at the pointer
+[ : if the byte at the pointer is zero, jump to the matching `]`
+] : if the byte at the pointer is nonzero, jump to the matching `[`
+
+if you quit repl, input "quit"
+"""
+
+let printPrompt() = Console.Write("Brainfuck>> ")
+
+let machine = Machine()
+
+let rec repl() =
+    printPrompt()
+    let code = Console.ReadLine().Trim()
+    if code = "quit" then
+        Console.WriteLine("bye")
+        ()
+    else
+        code |> Parser.parse |> machine.Interpret
+        if machine.Writed() then
+            Console.WriteLine()
+        repl()
+
 [<EntryPoint>]
 let main argv =
     match argv.Length with
     | 0 -> 
+        Console.Clear()
         Console.WriteLine(title)
+        Console.WriteLine(usage)
         repl()
     | 1 -> 
         let filename = argv.[0]
         let code = File.ReadAllLines(filename) |> String.concat ""
-        // use writer = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()))
-        // Console.SetOut(writer)
         code |> Parser.parse |> machine.Interpret
-        machine.Dump(0,10)
     | _ -> 
         let msg = """
 Usage: 
 Brainfuck.exe -> REPL
 Brainfuck.exe <path-to-bf-file> -> interpret target file
         """
-        Console.WriteLine(msg)
+        stderr.WriteLine(msg)
         exit 1
     0 // return an integer exit code
