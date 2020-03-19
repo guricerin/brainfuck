@@ -1,5 +1,6 @@
 module Brainfuck.Parser
 
+open System
 open System.Collections.Generic
 open Instruction
 
@@ -28,7 +29,7 @@ module Parser =
 
     let private createJumpTable (tokens: ResizeArray<Instruction>) =
         let len = tokens.Count
-        let res = Array.init len (fun _ -> -1)
+        let res = Array.init len (fun _ -> Int32.MinValue)
         let begins = Stack<int>()
         for i in 0 .. len - 1 do
             match tokens.[i] with

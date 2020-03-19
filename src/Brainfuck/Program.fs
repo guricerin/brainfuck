@@ -40,7 +40,10 @@ let rec repl() =
         Console.WriteLine("bye")
         ()
     else
-        code |> Parser.parse |> machine.Interpret
+        try
+            code |> Parser.parse |> machine.Interpret
+        with
+        | ex -> Console.WriteLine(ex.Message)
         if machine.Writed() then
             Console.WriteLine()
         repl()
