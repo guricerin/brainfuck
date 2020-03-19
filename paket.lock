@@ -1,15 +1,15 @@
 NUGET
   remote: https://www.nuget.org/api/v2
-    Expecto (8.13.1)
-      FSharp.Core (>= 4.3.4) - restriction: || (>= net461) (>= netstandard2.0)
-      Mono.Cecil (>= 0.11) - restriction: || (>= net461) (>= netstandard2.0)
-    Expecto.FsCheck (8.13.1)
-      Expecto (>= 8.13.1) - restriction: || (>= net461) (>= netstandard2.0)
-      FsCheck (>= 2.14) - restriction: || (>= net461) (>= netstandard2.0)
-    FsCheck (2.14) - restriction: || (>= net461) (>= netstandard2.0)
+    Expecto (8.13.2)
+      FSharp.Core (>= 4.6) - restriction: || (>= net461) (>= netstandard2.0)
+      Mono.Cecil (>= 0.11.2) - restriction: || (>= net461) (>= netstandard2.0)
+    Expecto.FsCheck (8.13.2)
+      Expecto (>= 8.13.2) - restriction: || (>= net461) (>= netstandard2.0)
+      FsCheck (>= 2.14.1) - restriction: || (>= net461) (>= netstandard2.0)
+    FsCheck (2.14.2) - restriction: || (>= net461) (>= netstandard2.0)
       FSharp.Core (>= 4.2.3) - restriction: || (>= net452) (>= netstandard1.6)
-    FSharp.Core (4.7)
-    Mono.Cecil (0.11.1) - restriction: || (>= net461) (>= netstandard2.0)
+    FSharp.Core (4.7.1)
+    Mono.Cecil (0.11.2) - restriction: || (>= net461) (>= netstandard2.0)
 
 GROUP Build
 STORAGE: NONE
@@ -156,9 +156,9 @@ NUGET
     FSharp.Control.Reactive (4.2) - restriction: || (>= net462) (>= netstandard2.0)
       FSharp.Core (>= 4.2.3) - restriction: || (>= net46) (>= netstandard2.0)
       System.Reactive (>= 4.0) - restriction: || (>= net46) (>= netstandard2.0)
-    FSharp.Core (4.7) - restriction: || (>= net462) (>= netstandard2.0)
-    Microsoft.Build (16.4) - restriction: || (>= net462) (>= netstandard2.0)
-      Microsoft.Build.Framework (>= 16.4) - restriction: || (>= net472) (>= netcoreapp2.1)
+    FSharp.Core (4.7.1) - restriction: || (>= net462) (>= netstandard2.0)
+    Microsoft.Build (16.5) - restriction: || (>= net462) (>= netstandard2.0)
+      Microsoft.Build.Framework (>= 16.5) - restriction: || (>= net472) (>= netcoreapp2.1)
       Microsoft.VisualStudio.Setup.Configuration.Interop (>= 1.16.30) - restriction: >= net472
       Microsoft.Win32.Registry (>= 4.3) - restriction: >= netcoreapp2.1
       System.Collections.Immutable (>= 1.5) - restriction: || (>= net472) (>= netcoreapp2.1)
@@ -170,12 +170,12 @@ NUGET
       System.Security.Principal.Windows (>= 4.3) - restriction: >= netcoreapp2.1
       System.Text.Encoding.CodePages (>= 4.0.1) - restriction: >= netcoreapp2.1
       System.Threading.Tasks.Dataflow (>= 4.9) - restriction: || (>= net472) (>= netcoreapp2.1)
-    Microsoft.Build.Framework (16.4) - restriction: || (>= net462) (>= netstandard2.0)
+    Microsoft.Build.Framework (16.5) - restriction: || (>= net462) (>= netstandard2.0)
       System.Runtime.Serialization.Primitives (>= 4.1.1) - restriction: && (< net472) (>= netstandard2.0)
       System.Threading.Thread (>= 4.0) - restriction: && (< net472) (>= netstandard2.0)
-    Microsoft.Build.Tasks.Core (16.4) - restriction: || (>= net462) (>= netstandard2.0)
-      Microsoft.Build.Framework (>= 16.4) - restriction: >= netstandard2.0
-      Microsoft.Build.Utilities.Core (>= 16.4) - restriction: >= netstandard2.0
+    Microsoft.Build.Tasks.Core (16.5) - restriction: || (>= net462) (>= netstandard2.0)
+      Microsoft.Build.Framework (>= 16.5) - restriction: >= netstandard2.0
+      Microsoft.Build.Utilities.Core (>= 16.5) - restriction: >= netstandard2.0
       Microsoft.VisualStudio.Setup.Configuration.Interop (>= 1.16.30) - restriction: >= net472
       Microsoft.Win32.Registry (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
       System.CodeDom (>= 4.4) - restriction: && (< net472) (>= netstandard2.0)
@@ -187,8 +187,8 @@ NUGET
       System.Resources.Extensions (>= 4.6) - restriction: >= netstandard2.0
       System.Resources.Writer (>= 4.0) - restriction: && (< net472) (>= netstandard2.0)
       System.Threading.Tasks.Dataflow (>= 4.9) - restriction: >= netstandard2.0
-    Microsoft.Build.Utilities.Core (16.4) - restriction: || (>= net462) (>= netstandard2.0)
-      Microsoft.Build.Framework (>= 16.4) - restriction: >= netstandard2.0
+    Microsoft.Build.Utilities.Core (16.5) - restriction: || (>= net462) (>= netstandard2.0)
+      Microsoft.Build.Framework (>= 16.5) - restriction: >= netstandard2.0
       Microsoft.VisualStudio.Setup.Configuration.Interop (>= 1.16.30) - restriction: >= net472
       Microsoft.Win32.Registry (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
       System.Collections.Immutable (>= 1.5) - restriction: >= netstandard2.0
@@ -216,23 +216,23 @@ NUGET
       Microsoft.Build.Utilities.Core (>= 14.3) - restriction: >= net46
       Microsoft.Build.Utilities.Core (>= 15.8.166) - restriction: && (< net46) (>= netstandard2.0)
     Newtonsoft.Json (12.0.3) - restriction: || (>= net462) (>= netstandard2.0)
-    NuGet.Common (5.4) - restriction: >= netstandard2.0
-      NuGet.Frameworks (>= 5.4) - restriction: >= netstandard2.0
+    NuGet.Common (5.5) - restriction: >= netstandard2.0
+      NuGet.Frameworks (>= 5.5) - restriction: >= netstandard2.0
       System.Diagnostics.Process (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
       System.Threading.Thread (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
-    NuGet.Configuration (5.4) - restriction: >= netstandard2.0
-      NuGet.Common (>= 5.4) - restriction: >= netstandard2.0
+    NuGet.Configuration (5.5) - restriction: >= netstandard2.0
+      NuGet.Common (>= 5.5) - restriction: >= netstandard2.0
       System.Security.Cryptography.ProtectedData (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
-    NuGet.Frameworks (5.4) - restriction: >= netstandard2.0
-    NuGet.Packaging (5.4) - restriction: >= netstandard2.0
+    NuGet.Frameworks (5.5) - restriction: >= netstandard2.0
+    NuGet.Packaging (5.5) - restriction: >= netstandard2.0
       Newtonsoft.Json (>= 9.0.1) - restriction: >= netstandard2.0
-      NuGet.Configuration (>= 5.4) - restriction: >= netstandard2.0
-      NuGet.Versioning (>= 5.4) - restriction: >= netstandard2.0
+      NuGet.Configuration (>= 5.5) - restriction: >= netstandard2.0
+      NuGet.Versioning (>= 5.5) - restriction: >= netstandard2.0
       System.Dynamic.Runtime (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
-    NuGet.Protocol (5.4) - restriction: || (>= net462) (>= netstandard2.0)
-      NuGet.Packaging (>= 5.4) - restriction: >= netstandard2.0
+    NuGet.Protocol (5.5) - restriction: || (>= net462) (>= netstandard2.0)
+      NuGet.Packaging (>= 5.5) - restriction: >= netstandard2.0
       System.Dynamic.Runtime (>= 4.3) - restriction: && (< net472) (>= netstandard2.0)
-    NuGet.Versioning (5.4) - restriction: >= netstandard2.0
+    NuGet.Versioning (5.5) - restriction: >= netstandard2.0
     runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (>= netstandard2.0) (< xamarinios) (< xamarinmac)) (&& (< net45) (>= net462) (>= netstandard1.6))
     runtime.debian.9-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (>= netstandard2.0) (< xamarinios) (< xamarinmac)) (&& (< net45) (>= net462) (>= netstandard1.6))
     runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (>= netstandard2.0) (< xamarinios) (< xamarinmac)) (&& (< net45) (>= net462) (>= netstandard1.6))

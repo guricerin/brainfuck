@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF40183C-C206-4C67-A216-C2967534CAFA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Brainfuck", "src\Brainfuck\Brainfuck.fsproj", "{980EABD7-4CA1-496D-9A85-89CA861BD8B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|x64.Build.0 = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Debug|x86.Build.0 = Debug|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|x64.ActiveCfg = Release|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|x64.Build.0 = Release|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|x86.ActiveCfg = Release|Any CPU
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{980EABD7-4CA1-496D-9A85-89CA861BD8B5} = {FF40183C-C206-4C67-A216-C2967534CAFA}
+	EndGlobalSection
+EndGlobal
